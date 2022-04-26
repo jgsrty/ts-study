@@ -1,59 +1,76 @@
-// // 字符串类型
-// let str: string = "test";
-// console.log(str); //test
-
-// // 数值类型
-// let number: number = 111;
-// let binaryLiteral: number = 0b1010; // 二进制
-// let octalLiteral: number = 0o744; // 八进制
-// let decLiteral: number = 6; // 十进制
-// let hexLiteral: number = 0xf00d; // 十六进制
-
-// // 布尔类型
-// let boolean: boolean = true;
-// let boolean2: boolean = false;
-
-// // 空值类型 void
-// // 一般用于表示没有返回值的函数
-// function voidFn(): void {
-//   console.log("此函数不需要返回");
+// // interface 接口中定义的属性和类型在使用时也要一样
+// interface study {
+//   vue: boolean;
+//   typescript: boolean;
 // }
-// // void也可以定义undefined和null
-// let undef: void = undefined;
-// let nul: void = null;
 
-// // null && undefined
-// let a: undefined = undefined;
-// let b: null = null;
-// // undefined类型变量可以赋值给其他类型变量
-// str = a;
-// number = a;
-// b = a
-// str = b;
+// const rty: study = {
+//   vue: false,
+//   typescript: false,
+// };
 
-// // any不限制类型，可以随意赋值，不检查类型
-// let a: any = 1;
-// a = "111";
-// a = {};
-// a = [];
-// a = function () {};
+// // 重名接口会自动合并
+// interface study {
+//   vue: boolean;
+//   typescript: boolean;
+// }
+// interface study {
+//   javascript: boolean;
+// }
+// const rty: study = {
+//   vue: false,
+//   typescript: false,
+//   javascript: false,
+// };
 
-// // unknow也可以定义任何类型的值
-// let b: unknown;
-// b = "111";
-// b = true;
-// b = {};
-// b = [];
-// b = function () {};
+// 接口继承 extends
+// interface study {
+//   vue: boolean;
+//   typescript: boolean;
+// }
+// interface skill extends study {
+//   javascript: boolean;
+// }
+// const rty: skill = {
+//   vue: false,
+//   typescript: false,
+//   javascript: false,
+// };
 
-// // unkonw作为自类型不行
-// let c: unknown = 123;
-// let d = "test";
-// // d = c; // 报错-不能将unknow赋值给其他类型 只能复制unkown或者any
-// a = c; // 可以运行
-// b = c; // 可以运行
+// 可选属性
+// interface study {
+//   vue: boolean;
+//   typescript?: boolean;
+// }
+// const rty: study = {
+//   vue: false,
+// };
 
-// // unknow不能调用属性和方法 any可以
-// let e: unknown = { a: 1, b: (): number => 123 };
-// // e.a  // 报错
-// // e.b  // 报错
+// 只读属性 readonly
+// interface study {
+//   readonly vue: boolean;
+//   typescript: boolean;
+// }
+// const rty: study = {
+//   vue: true,
+//   typescript: false,
+// };
+// console.log(rty); //{ vue: true, typescript: false }
+// // rty.vue = false; //无法分配到 "vue" ，因为它是只读属性。
+
+// 任意属性 [propName]
+interface study {
+  readonly vue: boolean;
+  typescript: boolean;
+  fun(): void;
+  fun2(): number;
+  [propName: string]: any;
+}
+const rty: study = {
+  vue: true,
+  typescript: true,
+  fun: () => console.log(1),
+  fun2: () => 123,
+  age: 29,
+  name: "bruno",
+};
