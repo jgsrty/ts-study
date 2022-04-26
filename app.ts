@@ -57,3 +57,11 @@
 // let e: unknown = { a: 1, b: (): number => 123 };
 // // e.a  // 报错
 // // e.b  // 报错
+
+// 数组类型
+let numberArr: number[] = [1, 2, 3, 4, 5, 6];
+let booleanArr: boolean[] = [true, false, true];
+let stringArr: string[] = ["1", "2"];
+let anyArr: any[] = [1, "2", true];
+// 多维数组
+let list:number[][] = [[1,2],[2,1]]
