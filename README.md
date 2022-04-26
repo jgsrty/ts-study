@@ -2,5 +2,4 @@
 
 ### TypeScript 学习笔记
 
-[1. 基础类型](https://github.com/jgsrty/ts-study)  
-[1. 接口](https://github.com/jgsrty/ts-study/tree/interface)
+[已迁移至码云](https://gitee.com/RtyXmd/ts-study) 
